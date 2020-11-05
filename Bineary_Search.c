@@ -2,7 +2,7 @@
 void accept(int a[],int n)
 {
     int i;
-    printf("ENter array elements\n");
+    printf("Enter array elements\n");
     for(i=0;i<n;i++)
     {
         scanf("%d",&a[i]);
