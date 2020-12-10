@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-int pos=0;
+int pos=0,n;
+struct node *temp;
 typedef struct node
 {
     int data;
@@ -8,8 +9,8 @@ typedef struct node
 }Node;
 struct node* createlist(struct node *head)
 {
-    int i,n;
-    printf("Create List......\n\n")
+    int i;
+    printf("Create List......\n\n");
     printf("Enter number of nodes\t");
     scanf("%d",&n);
     struct node *temp,*nextnode;
@@ -141,6 +142,9 @@ int search(struct node* head)
 void printReverselist(struct node* temp)
 {
 }
+void sort(struct node* head)
+{
+}
 void main()
 {
     struct node *head;
@@ -149,50 +153,54 @@ void main()
 
     head=(struct node *)malloc(sizeof(struct node));
     head->next=NULL;
-
-    printf("Menu\n\n1.create list\n2.Triverse\n3.Insert\n4.Delete\n5.Search\n\n");
-    scanf("%d",&menu);
-
-    switch(menu)
+    while(menu !=8)
     {
-        case 1:
-        createlist(head);
-        printlist(head);
-        break;
+        printf("\nMenu\n\n1.create list\n2.Display\n3.Insert\n4.Delete\n5.Search\n6.Reverse\n7.Exit\n\n Select :-\t");
+        scanf("%d",&menu);
 
-        case 2:
-        printlist(head);
-        break;
+        switch(menu)
+            {
+             case 1:
+                createlist(head);
+                break;
 
-        case 3:
-        createlist(head);
-        insert(head);
-        printlist(head);
-        break;
+                case 2:
+                printlist(head);
+                break;
 
-        case 4:
-        createlist(head);
-        delete(head);
-        printlist(head);
-        break;
+                case 3:
+                insert(head);
+                break;
 
-        case 5:
-        createlist(head);
-        p=search(head);
+                case 4:
+                delete(head);
+                break;
 
-        if(p!=-1)
-        {
-            printf("\nElement is at %dth possition\n",p);
-        }
-        else
-        {
-            printf("Element is not in linked list\n");
-        }
-        break;
+                case 5:
+                p=search(head);
 
-        default:
-        printf("\nWrong Entry........\n");
-        break;
-    }  
-    //printReverselist(head);    
+                if(p!=-1)
+                {
+                 printf("\nElement is at %dth possition\n",pos);
+                }
+                else
+                {
+                    printf("Element is not in linked list\n");
+                }
+                break;
+
+                case 6:
+                printReverselist(temp);
+                break;
+                
+                case 7:
+                sort(head);
+                case 8:
+                break;
+
+                default:
+                printf("\nWrong Entry........\n");
+                break;
+            }
+    }
 }
